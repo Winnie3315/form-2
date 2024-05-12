@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        form {
+            width: fit-content;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                
+
+                input {
+                    padding: 4px;
+                    border: 1px solid #c4c4c4;
+                    border-radius: 4px;
+                }
+                input::placeholder {
+                    color: #c4c4c4;
+                }
+            }
+            img{
+                max-width: 100%;
+            }
+            #img{
+                display: none;
+                max-width: 200px;
+                max-height: 200px
+            }
+            .req {
+                span {
+                    color: blue;
+                }
+                input {
+                    border-color: blue;
+                }
+            }
+            .error {
+                position: relative;
+                span {
+                    color: red;
+                }
+                input {
+                    border-color: red;
+                }   
+            }
+            .error::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image: url("./error.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: -25px;
+                top: 50%;
+            }
+            .label {
+                display: inline-block;
+                position: relative;
+                width: 200px;
+                height: 50px;
+            }
+
+            .label span {
+                padding: 4px;
+                border: 1px solid #c4c4c4;
+                border-radius: 4px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .label input[type="file"] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <form name="signin" >
+
+        <label for="name" class="req" >
+            <span>name</span>
+            <input type="text" id="name" pattern="[A-Za-zА-Яа-яЁё]+" placeholder="name" name="name" >
+        </label>
+        <label for="surname"  >
+            <span>surname</span>
+            <input type="text" id="surname" pattern="[A-Za-zА-Яа-яЁё]+" placeholder="surname" name="surname" >
+        </label>
+        <label for="age" class="req " >
+            <span>age</span>
+            <input type="text" id="age" pattern="[0-9]+" placeholder="age" name="age" >
+        </label>
+        <label for="file" class="label">
+            <span>download</span>
+            <input type="file" accept="" name="file" id="file" multiple>
+        </label>
+        <img id="img" src="#" alt="img" >
+
+        <button>send</button>
+    </form>
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
+
+

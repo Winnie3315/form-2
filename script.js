@@ -5,6 +5,8 @@ const surname = document.querySelector('#surname')
 const age = document.querySelector('#age')
 const file = document.querySelector('#file')
 const img = document.querySelector('#img')
+let regular = /[A-Za-zА-Яа-яЁё]/g
+let num = /[0-9]/g
 
 file.onchange = (event) => {
     const file = event.target.files[0]
@@ -19,17 +21,17 @@ file.onchange = (event) => {
 }
 
 name.oninput = (event) => {
-    const value = event.target.value.replace(/[^A-Za-zА-Яа-яЁё]/g, '')
+    const value = event.target.value.replace(num, '')
     name.value = value
 };
 
 surname.oninput = (event) => {
-    const value = event.target.value.replace(/[^A-Za-zА-Яа-яЁё]/g, '')
+    const value = event.target.value.replace(num, '')
     surname.value = value
 };
 
 age.oninput = (event) => {
-    const value = event.target.value.replace(/\D/g, '')
+    const value = event.target.value.replace(regular, '')
     age.value = value
 }
 
